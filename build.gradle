@@ -1,4 +1,5 @@
 //build할 때 사용할 plugin dependencies 추가
+//프로젝트의 플러그인 의존성 관리
 buildscript {
     ext { //전역변수
         springBootVersion = '2.1.7.RELEASE'
@@ -26,7 +27,25 @@ repositories {
 }
 
 dependencies {
-    implementation('org.springframework.boot:spring-boot-starter-web')
+    implementation('org.springframework.boot:spring-boot-starter-web') // compile x
+    implementation('org.projectlombok:lombok')
     testImplementation('org.springframework.boot:spring-boot-starter-test')
+
+
+    // error: variable <변수명> not initialized in the default constructor
+    testImplementation ('org.projectlombok:lombok')
+    annotationProcessor('org.projectlombok:lombok')
+    testAnnotationProcessor('org.projectlombok:lombok')
+}
+
+test {
+    testLogging {
+        // test jvm의 standard out and standard error을 console에 출력한다.
+        showStandardStreams = true
+        showCauses = true
+        showExceptions = true
+        showStackTraces = true
+        exceptionFormat = 'full'
+    }
 }
 
