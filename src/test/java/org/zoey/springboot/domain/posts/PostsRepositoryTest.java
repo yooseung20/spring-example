@@ -47,9 +47,9 @@ public class PostsRepositoryTest {
         // 테이블 posts에 있는 모든 데이터를 조회해오는 메소드이다.
         List<Posts> postsList = postsRepository.findAll();
 
-        //then
-        Posts posts =  postsList.get(0);
-        assertThat(posts.getTitle()).isEqualTo(title);
+        //then);
         assertThat(posts.getContent()).isEqualTo(content);
     }
+    Posts posts =  postsList.get(0);
+    assertThat(posts.getTitle()).isEqualTo(title
 }
