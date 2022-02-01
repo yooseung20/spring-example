@@ -4,6 +4,7 @@ package org.zoey.springboot.domain.posts;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.zoey.springboot.domain.BaseTimeEntity;
 
 
 import javax.persistence.*;
@@ -18,7 +19,7 @@ import javax.persistence.*;
 // EX> SalesManager.java -> sales_manager table
 
 @Entity
-public class Posts {
+public class Posts extends BaseTimeEntity {
 
     // 해당 테이블에 PK 필드를 나타낸다.
     @Id
@@ -46,5 +47,10 @@ public class Posts {
         this.title = title;
         this.content = content;
         this.author = author;
+    }
+
+    public void update(String title, String content){
+        this.title = title;
+        this.content = content;
     }
 }
