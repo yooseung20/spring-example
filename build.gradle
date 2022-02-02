@@ -41,11 +41,13 @@ dependencies {
     // JPA 테스트, 로컬환경에서의 구동에서 사용 예정
     implementation('com.h2database:h2')
 
-
     // error: variable <변수명> not initialized in the default constructor
     testImplementation ('org.projectlombok:lombok')
     annotationProcessor('org.projectlombok:lombok')
     testAnnotationProcessor('org.projectlombok:lombok')
+
+    // 머스테치 : 스프링 부트에서 공식 지원하는 템플릿 엔진
+    implementation('org.springframework.boot:spring-boot-starter-mustachhe')
 }
 
 test {
