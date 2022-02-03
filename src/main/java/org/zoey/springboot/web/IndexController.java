@@ -10,4 +10,10 @@ public class IndexController {
     public String index(){
         return "index";
     }
+
+    // posts/save를 호출하면 posts-save.mustache
+    @GetMapping("/posts/save")
+    public String postsSave() {
+        return "posts-save";
+    }
 }
