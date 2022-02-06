@@ -6,7 +6,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import org.springframework.web.bind.annotation.PathVariable;
-import org.zoey.springboot.domain.posts.PostsRepository;
 import org.zoey.springboot.service.posts.PostsService;
 import org.zoey.springboot.web.dto.PostsResponseDto;
 
