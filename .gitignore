@@ -2,3 +2,5 @@
 .gradle
 .idea
 
+# application-oauth.properties파일이 github에 올라가지않도록 설정
+application-oauth.properties
