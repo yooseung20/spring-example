@@ -1,6 +1,7 @@
 package org.zoey.springboot.config.auth;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.zoey.springboot.domain.user.Role;
@@ -18,7 +19,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-
         // h2-console 화면을 사용하기 위해 옵션들을 disable 합니다.
         http.csrf().disable().headers().frameOptions().disable()
                 .and()
