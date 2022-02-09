@@ -21,8 +21,6 @@ public class User extends BaseTimeEntity {
     @Id
     // GenerationTpye.IDENTITY 를 추가해야만 auto_increment가 가능하다.
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
-    @Column(nullable = false)
     private Long id;
 
     @Column(nullable =false)
@@ -31,7 +29,7 @@ public class User extends BaseTimeEntity {
     @Column(nullable=false)
     private String email;
 
-    @Column(nullable = false)
+    @Column
     private String picture;
 
     // JPA로 데이터베이스로 저장할때 enum 값을 어떤 형태로 저장할 지를 결정한다.
@@ -60,6 +58,7 @@ public class User extends BaseTimeEntity {
     }
 
     public String getRoleKey(){
+
         return this.role.getKey();
     }
 

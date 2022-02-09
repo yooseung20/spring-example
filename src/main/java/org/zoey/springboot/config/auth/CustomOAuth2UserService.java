@@ -31,11 +31,10 @@ public class CustomOAuth2UserService implements OAuth2UserService<OAuth2UserRequ
 
     @Override
     public OAuth2User loadUser(OAuth2UserRequest userRequest)
-        throws OAuth2AuthenticationException {
+            throws OAuth2AuthenticationException {
         // defaultOAuth2UserService는 OAuth2UserService의 구현체이다.
         // 해당 클래스를 이용해서 userRequest에 있는 정보를 빼낼 수 있다.
-        OAuth2UserService<OAuth2UserRequest, OAuth2User>
-                delegate = new DefaultOAuth2UserService();
+        OAuth2UserService delegate = new DefaultOAuth2UserService();
 
         // user 정보를 빼낸다.
         OAuth2User oAuth2User = delegate.loadUser(userRequest);
@@ -74,19 +73,15 @@ public class CustomOAuth2UserService implements OAuth2UserService<OAuth2UserRequ
         return new DefaultOAuth2User(Collections.singleton(new SimpleGrantedAuthority(user.getRoleKey())),
                 attributes.getAttributes(),
                 attributes.getNameAttributeKey());
-        }
+    }
 
 
-        private User saveOrUpdate(OAuthAttributes attributes) {
-            User user = userRepository.findByEmail(attributes.getEmail())
-                    .map(entity -> entity.update(attributes.getName(), attributes.getPicture()))
-                    // 기존 user 가 아닌경우, User생성
-                    .orElse(attributes.toEntity());
+    private User saveOrUpdate(OAuthAttributes attributes) {
+        User user = userRepository.findByEmail(attributes.getEmail())
+                .map(entity -> entity.update(attributes.getName(), attributes.getPicture()))
+                // 기존 user 가 아닌경우, User생성
+                .orElse(attributes.toEntity());
 
-            return userRepository.save(user);
-            }
-
-
-
-
+        return userRepository.save(user);
+    }
 }
